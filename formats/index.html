@@ -1,0 +1,764 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="A customizable, syntax-aware linter for prose.">
+      
+      
+        <link rel="canonical" href="https://errata-ai.github.io/vale/formats/">
+      
+      
+        <meta name="author" content="Joseph Kato">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../img/vale.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.3.0">
+    
+    
+      
+        <title>Markup - Your style, our editor</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.962652e9.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../css/style.css">
+    
+      <link rel="stylesheet" href="../css/quickstart.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="light-blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#overview" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://errata-ai.github.io/vale/" title="Your style, our editor" class="md-header-nav__button md-logo">
+          
+            <img src="../img/vale.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Your style, our editor
+              </span>
+              <span class="md-header-nav__topic">
+                Markup
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/errata-ai/vale/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      errata-ai/vale
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://errata-ai.github.io/vale/" title="Your style, our editor" class="md-nav__button md-logo">
+      
+        <img src="../img/vale.png" width="48" height="48">
+      
+    </a>
+    Your style, our editor
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/errata-ai/vale/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      errata-ai/vale
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../config/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Markup
+      </label>
+    
+    <a href="./" title="Markup" class="md-nav__link md-nav__link--active">
+      Markup
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#markdown" title="Markdown" class="md-nav__link">
+    Markdown
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html" title="HTML" class="md-nav__link">
+    HTML
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restructuredtext" title="reStructuredText" class="md-nav__link">
+    reStructuredText
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asciidoc" title="AsciiDoc" class="md-nav__link">
+    AsciiDoc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" title="Code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-standard-markup" title="Non-Standard Markup" class="md-nav__link">
+    Non-Standard Markup
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../styles/" title="Styles" class="md-nav__link">
+      Styles
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../plugins/" title="Plugins" class="md-nav__link">
+      Plugins
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../examples/" title="Examples" class="md-nav__link">
+      Examples
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#markdown" title="Markdown" class="md-nav__link">
+    Markdown
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html" title="HTML" class="md-nav__link">
+    HTML
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restructuredtext" title="reStructuredText" class="md-nav__link">
+    reStructuredText
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asciidoc" title="AsciiDoc" class="md-nav__link">
+    AsciiDoc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" title="Code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-standard-markup" title="Non-Standard Markup" class="md-nav__link">
+    Non-Standard Markup
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/errata-ai/vale/edit/master/docs/content/formats.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Markup</h1>
+                
+                <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Vale is "syntax aware," which means that it's capable of both applying rules to and ignoring certain sections of text. This functionality is implemented through a <em>scoping</em> system. A scope (i.e., a particular section of text) is specified through a <em>selector</em> such as <code>paragraph.rst</code>, which indicates that the rule applies to all paragraphs in reStructuredText files. Here are a few examples:</p>
+<ul>
+<li><code>comment</code> matches all source code comments;</li>
+<li><code>comment.line</code> matches all source code line comments;</li>
+<li><code>heading.md</code> matches all Markdown headings; and</li>
+<li><code>text.html</code> matches all HTML scopes.</li>
+</ul>
+<p>The table below summarizes all available scopes.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Format</th>
+<th>Scopes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">markup</td>
+<td><code>heading</code>, <code>table.header</code>, <code>table.cell</code>, <code>list</code>, <code>paragraph</code>, <code>sentence</code>, <code>link</code>, <code>alt</code>, <code>blockquote</code>, <code>summary</code></td>
+</tr>
+<tr>
+<td align="center">code</td>
+<td><code>comment.line</code>, <code>comment.block</code></td>
+</tr>
+<tr>
+<td align="center">plain text</td>
+<td><code>text</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="markdown">Markdown<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h2>
+<p>Vale has built-in support for GitHub-Flavored Markdown. By default, it ignores indented blocks, fenced blocks, and code spans.</p>
+<h2 id="html">HTML<a class="headerlink" href="#html" title="Permanent link">&para;</a></h2>
+<p>Vale has built-in support for HTML. By default, it ignores <code>script</code>, <code>style</code>, <code>pre</code>, <code>code</code>, and <code>tt</code> tags.</p>
+<h2 id="restructuredtext">reStructuredText<a class="headerlink" href="#restructuredtext" title="Permanent link">&para;</a></h2>
+<p>Vale supports reStructuredText through the external program <a href="http://docutils.sourceforge.net/docs/user/tools.html#rst2html-py"><code>rst2html</code></a>. If you have <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a> or <a href="http://docutils.sourceforge.net/">docutils</a> installed, you shouldn't need to install <code>rst2html</code> separately.</p>
+<p>By default, it ignores literal blocks, inline literals, and <code>code-block</code>s.</p>
+<h2 id="asciidoc">AsciiDoc<a class="headerlink" href="#asciidoc" title="Permanent link">&para;</a></h2>
+<p>Vale supports AsciiDoc through the external program <a href="https://rubygems.org/gems/asciidoctor">AsciiDoctor</a>. By default, it ignores listing blocks and inline literals.</p>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
+<!-- vale 18F.UnexpandedAcronyms = NO -->
+
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Extensions</th>
+<th>Tokens (scope)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C</td>
+<td><code>.c</code>, <code>.h</code></td>
+<td><code>//</code> (<code>text.comment.line.ext</code>), <code>/*...*/</code> (<code>text.comment.line.ext</code>), <code>/*</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+<tr>
+<td>C#</td>
+<td><code>.cs</code>, <code>.csx</code></td>
+<td><code>//</code> (<code>text.comment.line.ext</code>), <code>/*...*/</code> (<code>text.comment.line.ext</code>), <code>/*</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+<tr>
+<td>C++</td>
+<td><code>.cpp</code>, <code>.cc</code>, <code>.cxx</code>, <code>.hpp</code></td>
+<td><code>//</code> (<code>text.comment.line.ext</code>), <code>/*...*/</code> (<code>text.comment.line.ext</code>), <code>/*</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+<tr>
+<td>CSS</td>
+<td><code>.css</code></td>
+<td><code>/*...*/</code> (<code>text.comment.line.ext</code>), <code>/*</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+<tr>
+<td>Go</td>
+<td><code>.go</code></td>
+<td><code>//</code> (<code>text.comment.line.ext</code>), <code>/*...*/</code> (<code>text.comment.line.ext</code>), <code>/*</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+<tr>
+<td>Haskell</td>
+<td><code>.hs</code></td>
+<td><code>--</code> (<code>text.comment.line.ext</code>), <code>{-</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+<tr>
+<td>Java</td>
+<td><code>.java</code>, <code>.bsh</code></td>
+<td><code>//</code> (<code>text.comment.line.ext</code>), <code>/*...*/</code> (<code>text.comment.line.ext</code>), <code>/*</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td><code>.js</code></td>
+<td><code>//</code> (<code>text.comment.line.ext</code>), <code>/*...*/</code> (<code>text.comment.line.ext</code>), <code>/*</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+<tr>
+<td>LESS</td>
+<td><code>.less</code></td>
+<td><code>//</code>(<code>text.comment.line.ext</code>), <code>/*...*/</code> (<code>text.comment.line.ext</code>), <code>/*</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+<tr>
+<td>Lua</td>
+<td><code>.lua</code></td>
+<td><code>--</code> (<code>text.comment.line.ext</code>), <code>--[[</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+<tr>
+<td>Perl</td>
+<td><code>.pl</code>, <code>.pm</code>, <code>.pod</code></td>
+<td><code>#</code> (<code>text.comment.line.ext</code>)</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td><code>.php</code></td>
+<td><code>//</code> (<code>text.comment.line.ext</code>), <code>#</code> (<code>text.comment.line.ext</code>), <code>/*...*/</code> (<code>text.comment.line.ext</code>), <code>/*</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+<tr>
+<td>Python</td>
+<td><code>.py</code>, <code>.py3</code>, <code>.pyw</code>, <code>.pyi</code>, <code>.rpy</code></td>
+<td><code>#</code> (<code>text.comment.line.ext</code>), <code>"""</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+<tr>
+<td>R</td>
+<td><code>.r</code>, <code>.R</code></td>
+<td><code>#</code> (<code>text.comment.line.ext</code>)</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td><code>.rb</code></td>
+<td><code>#</code> (<code>text.comment.line.ext</code>), <code>^=begin</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+<tr>
+<td>Sass</td>
+<td><code>.sass</code></td>
+<td><code>//</code> (<code>text.comment.line.ext</code>), <code>/*...*/</code> (<code>text.comment.line.ext</code>), <code>/*</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+<tr>
+<td>Scala</td>
+<td><code>.scala</code>, <code>.sbt</code></td>
+<td><code>//</code>(<code>text.comment.line.ext</code>),</td>
+</tr>
+<tr>
+<td>Swift</td>
+<td><code>.swift</code></td>
+<td><code>//</code> (<code>text.comment.line.ext</code>), <code>/*...*/</code> (<code>text.comment.line.ext</code>), <code>/*</code> (<code>text.comment.block.ext</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="non-standard-markup">Non-Standard Markup<a class="headerlink" href="#non-standard-markup" title="Permanent link">&para;</a></h2>
+<p>When working with non-HTML markup, you'll probably find that there are certain non-standard sections of text you'd like to ignore. Vale supports doing this at both the block and inline levels.</p>
+<p>To ignore entire blocks of text&mdash;e.g., <a href="https://gohugo.io/content-management/shortcodes/">Hugo's shortcodes</a>&mdash;you'll want to define <code>BlockIgnores</code>. For example, consider the following shortcode-like <code>file</code> snippet:</p>
+<div class="codehilite"><pre><span></span><span class="o">{</span>&lt; file <span class="s2">&quot;hello.go&quot;</span> go &gt;<span class="o">}</span>
+package main
+
+import <span class="s2">&quot;fmt&quot;</span>
+
+func main<span class="o">()</span> <span class="o">{</span>
+    fmt.Printf<span class="o">(</span><span class="s2">&quot;hello, world\n&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="o">{</span>&lt;/ file &gt;<span class="o">}</span>
+</pre></div>
+
+<p>To ignore all instances of <code>file</code>, we'd use a pattern along the lines of the following:</p>
+<div class="codehilite"><pre><span></span><span class="na">BlockIgnores</span> <span class="o">=</span> <span class="s">(?s) *({&lt; file [^&gt;]* &gt;}.*?{&lt;/ ?file &gt;})</span>
+</pre></div>
+
+<p>The basic idea is to capture the entire snippet in the first grouping. See <a href="https://regex101.com/r/mFM0kZ/1/">regex101</a> for a more thorough explanation.</p>
+<p>You can also define more than one by using a list (the <code>\</code> allows for line breaks):</p>
+<div class="codehilite"><pre><span></span><span class="na">BlockIgnores</span> <span class="o">=</span> <span class="s">(?s) *({&lt; output &gt;}.*?{&lt; ?/ ?output &gt;}), \</span>
+<span class="na">(?s) *({&lt; highlight .* &gt;}.*?{&lt; ?/ ?highlight &gt;})</span>
+</pre></div>
+
+<p>To ignore an inline section of text, you'll want to define <code>TokenIgnores</code>. For example, let's say we want to ignore math equations of the form <code>$...$</code>:</p>
+<div class="codehilite"><pre><span></span><span class="na">$\begin{bmatrix} k &amp; k &amp; k \end{bmatrix}^T$</span>
+</pre></div>
+
+<p>Similar to <code>BlockIgnores</code>, we just need to define a pattern:</p>
+<div class="codehilite"><pre><span></span><span class="na">TokenIgnores</span> <span class="o">=</span> <span class="s">(\$+[^\n$]+\$+)</span>
+</pre></div>
+
+<p>See <a href="https://errata-ai.github.io/vale/config/">Configuration</a> for more details.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../config/" title="Configuration" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Configuration
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../styles/" title="Styles" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Styles
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 - 2019 Joseph Kato
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.a353778b.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      
+        <script src="../js/quickstart.min.js"></script>
+      
+        <script src="../js/install.js"></script>
+      
+    
+  </body>
+</html>

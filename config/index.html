@@ -1,0 +1,723 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="A customizable, syntax-aware linter for prose.">
+      
+      
+        <link rel="canonical" href="https://errata-ai.github.io/vale/config/">
+      
+      
+        <meta name="author" content="Joseph Kato">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../img/vale.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.3.0">
+    
+    
+      
+        <title>Configuration - Your style, our editor</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.962652e9.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../css/style.css">
+    
+      <link rel="stylesheet" href="../css/quickstart.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="light-blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#valeini" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://errata-ai.github.io/vale/" title="Your style, our editor" class="md-header-nav__button md-logo">
+          
+            <img src="../img/vale.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Your style, our editor
+              </span>
+              <span class="md-header-nav__topic">
+                Configuration
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/errata-ai/vale/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      errata-ai/vale
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://errata-ai.github.io/vale/" title="Your style, our editor" class="md-nav__button md-logo">
+      
+        <img src="../img/vale.png" width="48" height="48">
+      
+    </a>
+    Your style, our editor
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/errata-ai/vale/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      errata-ai/vale
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Configuration
+      </label>
+    
+    <a href="./" title="Configuration" class="md-nav__link md-nav__link--active">
+      Configuration
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#valeini" title=".vale.ini" class="md-nav__link">
+    .vale.ini
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-options" title="Available Options" class="md-nav__link">
+    Available Options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ignoring-parts-of-your-documents" title="Ignoring Parts of Your Documents" class="md-nav__link">
+    Ignoring Parts of Your Documents
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../formats/" title="Markup" class="md-nav__link">
+      Markup
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../styles/" title="Styles" class="md-nav__link">
+      Styles
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../plugins/" title="Plugins" class="md-nav__link">
+      Plugins
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../examples/" title="Examples" class="md-nav__link">
+      Examples
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#valeini" title=".vale.ini" class="md-nav__link">
+    .vale.ini
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-options" title="Available Options" class="md-nav__link">
+    Available Options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ignoring-parts-of-your-documents" title="Ignoring Parts of Your Documents" class="md-nav__link">
+    Ignoring Parts of Your Documents
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/errata-ai/vale/edit/master/docs/content/config.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Configuration</h1>
+                
+                <p>Vale has three configuration components:</p>
+<ul>
+<li>
+<p>A <code>.vale.ini</code> (required): This is where you'll control the majority of Vale's behavior, including
+  what files to lint and how to lint them. See the next section for more information.</p>
+</li>
+<li>
+<p>A <code>StylesPath</code> directory (optional): This is where you'll store all of Vale's optional external
+  resources.</p>
+</li>
+<li>
+<p><a href="/vale/styles">Custom styles</a> (optional): Custom styles are a means of teaching Vale new
+  guidelines to lint against.</p>
+</li>
+</ul>
+<h2 id="valeini"><code>.vale.ini</code><a class="headerlink" href="#valeini" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Example Vale config file (`.vale.ini` or `_vale.ini`)</span>
+
+<span class="c1"># Core settings</span>
+<span class="na">StylesPath</span> <span class="o">=</span> <span class="s">ci/vale/styles</span>
+
+<span class="c1"># The minimum alert level to display (suggestion, warning, or error).</span>
+<span class="c1">#</span>
+<span class="c1"># CI builds will only fail on error-level alerts.</span>
+<span class="na">MinAlertLevel</span> <span class="o">=</span> <span class="s">warning</span>
+
+<span class="c1"># The &quot;formats&quot; section allows you to associate an &quot;unknown&quot; format</span>
+<span class="c1"># with one of Vale&#39;s supported formats.</span>
+<span class="k">[formats]</span>
+<span class="na">mdx</span> <span class="o">=</span> <span class="s">md</span>
+
+<span class="c1"># Global settings (applied to every syntax)</span>
+<span class="k">[*]</span>
+<span class="c1"># List of styles to load</span>
+<span class="na">BasedOnStyles</span> <span class="o">=</span> <span class="s">write-good, Joblint</span>
+<span class="c1"># Style.Rule = {YES, NO} to enable or disable a specific rule</span>
+<span class="na">vale.Editorializing</span> <span class="o">=</span> <span class="s">YES</span>
+<span class="c1"># You can also change the level associated with a rule</span>
+<span class="na">vale.Hedging</span> <span class="o">=</span> <span class="s">error</span>
+
+<span class="c1"># Syntax-specific settings</span>
+<span class="c1"># These overwrite any conflicting global settings</span>
+<span class="k">[*.{md,txt}]</span>
+<span class="na">vale.Editorializing</span> <span class="o">=</span> <span class="s">NO</span>
+</pre></div>
+
+<p>Vale expects its configuration to be in a file named <code>.vale.ini</code> or <code>_vale.ini</code>. It'll start looking for this file in the same directory as the file that's being linted. If it can't find one, it'll search up to 6 levels up the directory tree. After 6 levels, it'll look for a global configuration file in the OS equivalent of <code>$HOME</code> (see below).</p>
+<table>
+<thead>
+<tr>
+<th align="left">OS</th>
+<th align="left">Search Locations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Windows</td>
+<td align="left"><code>$HOME</code>, <code>%UserProfile%</code>, or <code>%HomeDrive%%HomePath%</code></td>
+</tr>
+<tr>
+<td align="left">macOS</td>
+<td align="left"><code>$HOME</code></td>
+</tr>
+<tr>
+<td align="left">Linux</td>
+<td align="left"><code>$HOME</code></td>
+</tr>
+</tbody>
+</table>
+<p>If more than one configuration file is present, the closest one takes precedence.</p>
+<h3 id="available-options">Available Options<a class="headerlink" href="#available-options" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><code>StylesPath</code> (core):</p>
+<div class="codehilite"><pre><span></span><span class="c1"># Here&#39;s an example of a relative path:</span>
+<span class="c1">#</span>
+<span class="c1"># .vale.ini</span>
+<span class="c1"># ci/</span>
+<span class="c1"># ├── vale/</span>
+<span class="c1"># │   ├── styles/</span>
+<span class="na">StylesPath</span> <span class="o">=</span> <span class="s">ci/vale/styles</span>
+</pre></div>
+
+<p><code>StylesPath</code> specifies where Vale should look for its external resources
+(e.g., styles and ignore files). The path value may be absolute or relative
+to the location of the parent <code>.vale.ini</code> file.</p>
+</li>
+<li>
+<p><code>MinAlertLevel</code> (core):</p>
+<div class="codehilite"><pre><span></span><span class="na">MinAlertLevel</span> <span class="o">=</span> <span class="s">suggestion</span>
+</pre></div>
+
+<p><code>MinAlertLevel</code> specifies the minimum alert severity that Vale will report. The options are
+"suggestion," "warning," or "error" (defaults to "suggestion").</p>
+</li>
+<li>
+<p><code>IgnoredScopes</code> (core):</p>
+<div class="codehilite"><pre><span></span><span class="c1"># By default, `code` and `tt` are ignored.</span>
+<span class="na">IgnoredScopes</span> <span class="o">=</span> <span class="s">code, tt</span>
+</pre></div>
+
+<p><code>IgnoredScopes</code> specifies inline-level HTML tags to ignore. In other words, these tags may
+occur in an active scope (see <code>SkippedScopes</code>) but their content still won't raise any alerts.</p>
+</li>
+<li>
+<p><code>SkippedScopes</code> (core):</p>
+<div class="codehilite"><pre><span></span><span class="c1"># By default, `script`, `style`, `pre`, and `figure` are ignored.</span>
+<span class="na">SkippedScopes</span> <span class="o">=</span> <span class="s">script, style, pre, figure</span>
+</pre></div>
+
+<p><code>SkippedScopes</code> specifies block-level HTML tags to ignore. Any content in these scopes will be
+ignored.</p>
+</li>
+<li>
+<p><code>WordTemplate</code> (core):</p>
+<div class="codehilite"><pre><span></span><span class="na">WordTemplate</span> <span class="o">=</span> <span class="s">`\b(?:%s)\b`</span>
+</pre></div>
+
+<p><code>WordTemplate</code> specifies what Vale will consider to be an individual word.</p>
+</li>
+<li>
+<p><code>BasedOnStyles</code> (syntax-specific):</p>
+<div class="codehilite"><pre><span></span><span class="na">BasedOnStyles</span> <span class="o">=</span> <span class="s">Joblint, write-good</span>
+</pre></div>
+
+<p><code>BasedOnStyles</code> specifies <a href="/vale/styles">styles</a> that should have all of their rules enabled.</p>
+</li>
+<li>
+<p><code>BlockIgnores</code> (syntax-specific):</p>
+<div class="codehilite"><pre><span></span><span class="na">BlockIgnores</span> <span class="o">=</span> <span class="s">(?s) *({&lt; file [^&gt;]* &gt;}.*?{&lt;/ ?file &gt;})</span>
+</pre></div>
+
+<p><code>BlockIgnores</code> allow you to exclude certain block-level sections of text
+that don't have an associated HTML tag that could be used with
+<code>SkippedScopes</code>. See <a href="https://errata-ai.github.io/vale/formats/#non-standard-markup">Non-Standard Markup</a>
+for more information.</p>
+</li>
+<li>
+<p><code>TokenIgnores</code> (syntax-specific):</p>
+<div class="codehilite"><pre><span></span><span class="na">TokenIgnores</span> <span class="o">=</span> <span class="s">(\$+[^\n$]+\$+)</span>
+</pre></div>
+
+<p><code>TokenIgnores</code> allow you to exclude certain inline-level sections of text
+that don't have an associated HTML tag that could be used with
+<code>IgnoredScopes</code>. See
+<a href="https://errata-ai.github.io/vale/formats/#non-standard-markup">Non-Standard Markup</a>
+for more information.</p>
+</li>
+</ul>
+<h2 id="ignoring-parts-of-your-documents">Ignoring Parts of Your Documents<a class="headerlink" href="#ignoring-parts-of-your-documents" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+    <p class="admonition-title">NOTE</p>
+    <p><p>Vale currently does not support comment-based configuration in AsciiDoc documents.</p></p>
+</div>
+
+<p>Ignore parts of your HTML and Markdown documents using HTML-style comments:</p>
+<div class="codehilite"><pre><span></span><span class="c">&lt;!-- vale off --&gt;</span>
+
+This is some text
+
+more text here...
+
+<span class="c">&lt;!-- vale on --&gt;</span>
+
+<span class="c">&lt;!-- vale Style.Rule = NO --&gt;</span>
+
+This is some text
+
+<span class="c">&lt;!-- vale Style.Rule = YES --&gt;</span>
+</pre></div>
+
+<p>Ignore parts of your reStructuredText documents:</p>
+<div class="codehilite"><pre><span></span><span class="cp">.. vale off</span>
+
+This is some text
+
+<span class="cp">..vale on</span>
+</pre></div>
+
+<p>Vale also ignores specific tags for each supported <a href="/vale/formats">markup language</a>.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../usage/" title="Usage" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Usage
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../formats/" title="Markup" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Markup
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 - 2019 Joseph Kato
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.a353778b.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      
+        <script src="../js/quickstart.min.js"></script>
+      
+        <script src="../js/install.js"></script>
+      
+    
+  </body>
+</html>
